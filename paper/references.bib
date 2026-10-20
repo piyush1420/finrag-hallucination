@@ -1,0 +1,190 @@
+% References for the preliminary paper — RAG hallucination in financial QA.
+% Grouped by theme: (1) RAG methods & retrieval, (2) hallucination detection/eval,
+% (3) financial NLP/QA. Verify author lists / pages against the source before final submit.
+
+% ---------------- RAG methods & retrieval ----------------
+
+@inproceedings{lewis2020rag,
+  title     = {Retrieval-Augmented Generation for Knowledge-Intensive {NLP} Tasks},
+  author    = {Lewis, Patrick and Perez, Ethan and Piktus, Aleksandra and Petroni, Fabio and Karpukhin, Vladimir and Goyal, Naman and K{\"u}ttler, Heinrich and Lewis, Mike and Yih, Wen-tau and Rockt{\"a}schel, Tim and Riedel, Sebastian and Kiela, Douwe},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2020}
+}
+
+@inproceedings{karpukhin2020dpr,
+  title     = {Dense Passage Retrieval for Open-Domain Question Answering},
+  author    = {Karpukhin, Vladimir and O{\u{g}}uz, Barlas and Min, Sewon and Lewis, Patrick and Wu, Ledell and Edunov, Sergey and Chen, Danqi and Yih, Wen-tau},
+  booktitle = {Proceedings of EMNLP},
+  year      = {2020}
+}
+
+@inproceedings{izacard2021fid,
+  title     = {Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering},
+  author    = {Izacard, Gautier and Grave, Edouard},
+  booktitle = {Proceedings of EACL},
+  year      = {2021}
+}
+
+@inproceedings{guu2020realm,
+  title     = {{REALM}: Retrieval-Augmented Language Model Pre-Training},
+  author    = {Guu, Kelvin and Lee, Kenton and Tung, Zora and Pasupat, Panupong and Chang, Ming-Wei},
+  booktitle = {Proceedings of ICML},
+  year      = {2020}
+}
+
+@article{robertson2009bm25,
+  title     = {The Probabilistic Relevance Framework: {BM25} and Beyond},
+  author    = {Robertson, Stephen and Zaragoza, Hugo},
+  journal   = {Foundations and Trends in Information Retrieval},
+  volume    = {3},
+  number    = {4},
+  pages     = {333--389},
+  year      = {2009}
+}
+
+@inproceedings{asai2024selfrag,
+  title     = {Self-{RAG}: Learning to Retrieve, Generate, and Critique through Self-Reflection},
+  author    = {Asai, Akari and Wu, Zeqiu and Wang, Yizhong and Sil, Avirup and Hajishirzi, Hannaneh},
+  booktitle = {Proceedings of ICLR},
+  year      = {2024}
+}
+
+@inproceedings{ma2023queryrewriting,
+  title     = {Query Rewriting for Retrieval-Augmented Large Language Models},
+  author    = {Ma, Xinbei and Gong, Yeyun and He, Pengcheng and Zhao, Hai and Duan, Nan},
+  booktitle = {Proceedings of EMNLP},
+  year      = {2023}
+}
+
+@article{gao2023ragsurvey,
+  title   = {Retrieval-Augmented Generation for Large Language Models: A Survey},
+  author  = {Gao, Yunfan and Xiong, Yun and Gao, Xinyu and Jia, Kangxiang and Pan, Jinliu and Bi, Yuxi and Dai, Yi and Sun, Jiawei and Wang, Haofen},
+  journal = {arXiv preprint arXiv:2312.10997},
+  year    = {2023}
+}
+
+@inproceedings{reimers2019sbert,
+  title     = {Sentence-{BERT}: Sentence Embeddings using Siamese {BERT}-Networks},
+  author    = {Reimers, Nils and Gurevych, Iryna},
+  booktitle = {Proceedings of EMNLP},
+  year      = {2019}
+}
+
+% ---------------- Hallucination detection & evaluation ----------------
+
+@article{ji2023hallucination,
+  title   = {Survey of Hallucination in Natural Language Generation},
+  author  = {Ji, Ziwei and Lee, Nayeon and Frieske, Rita and Yu, Tiezheng and Su, Dan and Xu, Yan and Ishii, Etsuko and Bang, Ye Jin and Madotto, Andrea and Fung, Pascale},
+  journal = {ACM Computing Surveys},
+  volume  = {55},
+  number  = {12},
+  pages   = {1--38},
+  year    = {2023}
+}
+
+@article{huang2023hallucinationsurvey,
+  title   = {A Survey on Hallucination in Large Language Models: Principles, Taxonomy, Challenges, and Open Questions},
+  author  = {Huang, Lei and Yu, Weijiang and Ma, Weitao and Zhong, Weihong and Feng, Zhangyin and Wang, Haotian and Chen, Qianglong and Peng, Weihua and Feng, Xiaocheng and Qin, Bing and Liu, Ting},
+  journal = {arXiv preprint arXiv:2311.05232},
+  year    = {2023}
+}
+
+@inproceedings{es2024ragas,
+  title     = {{RAGAS}: Automated Evaluation of Retrieval Augmented Generation},
+  author    = {Es, Shahul and James, Jithin and Espinosa-Anke, Luis and Schockaert, Steven},
+  booktitle = {Proceedings of EACL: System Demonstrations},
+  year      = {2024}
+}
+
+@inproceedings{manakul2023selfcheckgpt,
+  title     = {{SelfCheckGPT}: Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models},
+  author    = {Manakul, Potsawee and Liusie, Adian and Gales, Mark J. F.},
+  booktitle = {Proceedings of EMNLP},
+  year      = {2023}
+}
+
+@inproceedings{min2023factscore,
+  title     = {{FActScore}: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation},
+  author    = {Min, Sewon and Krishna, Kalpesh and Lyu, Xinxi and Lewis, Mike and Yih, Wen-tau and Koh, Pang Wei and Iyyer, Mohit and Zettlemoyer, Luke and Hajishirzi, Hannaneh},
+  booktitle = {Proceedings of EMNLP},
+  year      = {2023}
+}
+
+@inproceedings{niu2024ragtruth,
+  title     = {{RAGTruth}: A Hallucination Corpus for Developing Trustworthy Retrieval-Augmented Language Models},
+  author    = {Niu, Cheng and Wu, Yuanhao and Zhu, Juno and Xu, Siliang and Shum, Kashun and Zhong, Randy and Song, Juntong and Zhang, Tong},
+  booktitle = {Proceedings of ACL},
+  year      = {2024}
+}
+
+@inproceedings{chen2024rgb,
+  title     = {Benchmarking Large Language Models in Retrieval-Augmented Generation},
+  author    = {Chen, Jiawei and Lin, Hongyu and Han, Xianpei and Sun, Le},
+  booktitle = {Proceedings of AAAI},
+  year      = {2024}
+}
+
+@inproceedings{rajpurkar2016squad,
+  title     = {{SQuAD}: 100,000+ Questions for Machine Comprehension of Text},
+  author    = {Rajpurkar, Pranav and Zhang, Jian and Lopyrev, Konstantin and Liang, Percy},
+  booktitle = {Proceedings of EMNLP},
+  year      = {2016}
+}
+
+@article{friel2024ragbench,
+  title   = {{RAGBench}: Explainable Benchmark for Retrieval-Augmented Generation Systems},
+  author  = {Friel, Robert and Belyi, Masha and Sanyal, Atindriyo},
+  journal = {arXiv preprint arXiv:2407.11005},
+  year    = {2024}
+}
+
+% ---------------- Financial NLP & QA ----------------
+
+@article{islam2023financebench,
+  title   = {{FinanceBench}: A New Benchmark for Financial Question Answering},
+  author  = {Islam, Pranab and Kannappan, Anand and Kiela, Douwe and Qian, Rebecca and Scherrer, Nino and Vidgen, Bertie},
+  journal = {arXiv preprint arXiv:2311.11944},
+  year    = {2023}
+}
+
+@inproceedings{chen2021finqa,
+  title     = {{FinQA}: A Dataset of Numerical Reasoning over Financial Data},
+  author    = {Chen, Zhiyu and Chen, Wenhu and Smiley, Charese and Shah, Sameena and Borova, Iana and Langdon, Dylan and Moussa, Reema and Beane, Matt and Huang, Ting-Hao and Routledge, Bryan and Wang, William Yang},
+  booktitle = {Proceedings of EMNLP},
+  year      = {2021}
+}
+
+@inproceedings{zhu2021tatqa,
+  title     = {{TAT-QA}: A Question Answering Benchmark on a Hybrid of Tabular and Textual Content in Finance},
+  author    = {Zhu, Fengbin and Lei, Wenqiang and Huang, Youcheng and Wang, Chao and Zhang, Shuo and Lv, Jiancheng and Feng, Fuli and Chua, Tat-Seng},
+  booktitle = {Proceedings of ACL},
+  year      = {2021}
+}
+
+@inproceedings{chen2022convfinqa,
+  title     = {{ConvFinQA}: Exploring the Chain of Numerical Reasoning in Conversational Finance Question Answering},
+  author    = {Chen, Zhiyu and Li, Shiyang and Smiley, Charese and Ma, Zhiqiang and Shah, Sameena and Wang, William Yang},
+  booktitle = {Proceedings of EMNLP},
+  year      = {2022}
+}
+
+@article{wu2023bloomberggpt,
+  title   = {{BloombergGPT}: A Large Language Model for Finance},
+  author  = {Wu, Shijie and Irsoy, Ozan and Lu, Steven and Dabravolski, Vadim and Dredze, Mark and Gehrmann, Sebastian and Kambadur, Prabhanjan and Rosenberg, David and Mann, Gideon},
+  journal = {arXiv preprint arXiv:2303.17564},
+  year    = {2023}
+}
+
+@article{yang2023fingpt,
+  title   = {{FinGPT}: Open-Source Financial Large Language Models},
+  author  = {Yang, Hongyang and Liu, Xiao-Yang and Wang, Christina Dan},
+  journal = {arXiv preprint arXiv:2306.06031},
+  year    = {2023}
+}
+
+@article{jiang2023mistral,
+  title   = {{Mistral} 7{B}},
+  author  = {Jiang, Albert Q. and Sablayrolles, Alexandre and Mensch, Arthur and Bamford, Chris and Chaplot, Devendra Singh and de las Casas, Diego and Bressand, Florian and Lengyel, Gianna and Lample, Guillaume and Saulnier, Lucile and others},
+  journal = {arXiv preprint arXiv:2310.06825},
+  year    = {2023}
+}

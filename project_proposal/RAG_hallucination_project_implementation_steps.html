@@ -1,0 +1,377 @@
+
+<style>
+.phase { border-radius: var(--border-radius-lg); border: 0.5px solid var(--color-border-tertiary); margin-bottom: 12px; overflow: hidden; }
+.phase-header { padding: 12px 16px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; user-select: none; }
+.phase-header:hover { opacity: 0.85; }
+.phase-title { font-size: 15px; font-weight: 500; }
+.phase-sub { font-size: 12px; margin-top: 2px; opacity: 0.75; }
+.phase-body { padding: 0 16px 14px; display: none; }
+.phase-body.open { display: block; }
+.step { margin-top: 10px; padding: 10px 12px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-tertiary); background: var(--color-background-secondary); }
+.step-title { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+.step-actions { list-style: none; padding: 0; margin: 0; }
+.step-actions li { font-size: 12px; color: var(--color-text-secondary); padding: 2px 0 2px 14px; position: relative; line-height: 1.5; }
+.step-actions li::before { content: "→"; position: absolute; left: 0; color: var(--color-text-tertiary); }
+.tag { display: inline-block; font-size: 11px; padding: 1px 7px; border-radius: 20px; margin-right: 4px; font-weight: 500; }
+.chevron { font-size: 12px; transition: transform 0.2s; color: var(--color-text-tertiary); }
+.chevron.open { transform: rotate(90deg); }
+.progress-bar { height: 3px; background: var(--color-border-tertiary); border-radius: 2px; margin: 0 16px 12px; }
+.progress-fill { height: 100%; border-radius: 2px; transition: width 0.3s; }
+
+.p1 .phase-header { background: #EEEDFE; }
+.p1 .phase-title { color: #3C3489; }
+.p1 .phase-sub { color: #534AB7; }
+.p1 .progress-fill { background: #7F77DD; }
+@media (prefers-color-scheme: dark) {
+  .p1 .phase-header { background: #26215C; }
+  .p1 .phase-title { color: #CECBF6; }
+  .p1 .phase-sub { color: #AFA9EC; }
+}
+
+.p2 .phase-header { background: #E1F5EE; }
+.p2 .phase-title { color: #085041; }
+.p2 .phase-sub { color: #0F6E56; }
+.p2 .progress-fill { background: #1D9E75; }
+@media (prefers-color-scheme: dark) {
+  .p2 .phase-header { background: #04342C; }
+  .p2 .phase-title { color: #9FE1CB; }
+  .p2 .phase-sub { color: #5DCAA5; }
+}
+
+.p3 .phase-header { background: #E6F1FB; }
+.p3 .phase-title { color: #0C447C; }
+.p3 .phase-sub { color: #185FA5; }
+.p3 .progress-fill { background: #378ADD; }
+@media (prefers-color-scheme: dark) {
+  .p3 .phase-header { background: #042C53; }
+  .p3 .phase-title { color: #B5D4F4; }
+  .p3 .phase-sub { color: #85B7EB; }
+}
+
+.p4 .phase-header { background: #FAEEDA; }
+.p4 .phase-title { color: #633806; }
+.p4 .phase-sub { color: #854F0B; }
+.p4 .progress-fill { background: #BA7517; }
+@media (prefers-color-scheme: dark) {
+  .p4 .phase-header { background: #412402; }
+  .p4 .phase-title { color: #FAC775; }
+  .p4 .phase-sub { color: #EF9F27; }
+}
+
+.p5 .phase-header { background: #FAECE7; }
+.p5 .phase-title { color: #4A1B0C; }
+.p5 .phase-sub { color: #993C1D; }
+.p5 .progress-fill { background: #D85A30; }
+@media (prefers-color-scheme: dark) {
+  .p5 .phase-header { background: #4A1B0C; }
+  .p5 .phase-title { color: #F5C4B3; }
+  .p5 .phase-sub { color: #F0997B; }
+}
+
+.p6 .phase-header { background: #FBEAF0; }
+.p6 .phase-title { color: #4B1528; }
+.p6 .phase-sub { color: #993556; }
+.p6 .progress-fill { background: #D4537E; }
+@media (prefers-color-scheme: dark) {
+  .p6 .phase-header { background: #4B1528; }
+  .p6 .phase-title { color: #F4C0D1; }
+  .p6 .phase-sub { color: #ED93B1; }
+}
+</style>
+
+<h2 class="sr-only">RAG Hallucination Project — Implementation Steps</h2>
+<div style="padding: 4px 0 12px">
+  <p style="font-size:13px; color:var(--color-text-secondary); margin:0 0 14px">Click each phase to expand the detailed actions. 6 phases total.</p>
+
+  <!-- Phase 1 -->
+  <div class="phase p1">
+    <div class="phase-header" onclick="toggle('ph1')">
+      <div>
+        <div class="phase-title">Phase 1 — Setup & data preparation</div>
+        <div class="phase-sub">Weeks 1–2 · Before any modeling</div>
+      </div>
+      <span class="chevron" id="ch1">▶</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+    <div class="phase-body" id="ph1">
+
+      <div class="step">
+        <div class="step-title">Environment setup</div>
+        <ul class="step-actions">
+          <li>Create a shared GitHub repo — one per group, all members as collaborators</li>
+          <li>Set up a Python virtual environment with: <code>langchain</code>, <code>faiss-cpu</code>, <code>sentence-transformers</code>, <code>openai</code>, <code>ragas</code>, <code>transformers</code>, <code>pandas</code>, <code>datasets</code></li>
+          <li>Store OpenAI API key safely in a <code>.env</code> file (never commit to GitHub)</li>
+          <li>Set up Google Colab notebooks linked to the same repo for GPU runs</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <div class="step-title">Load and explore FinanceBench</div>
+        <ul class="step-actions">
+          <li>Download the 150-example dataset from HuggingFace: <code>PatronusAI/financebench</code></li>
+          <li>Load the two JSONL files: <code>financebench_open_source.jsonl</code> and <code>financebench_document_information.jsonl</code></li>
+          <li>Merge on <code>doc_name</code> and inspect: question types, answer lengths, doc types (10-K vs 10-Q vs 8-K)</li>
+          <li>Download the source PDFs from the <code>/pdfs/</code> folder in the GitHub repo</li>
+          <li>Do exploratory data analysis (EDA): distribution of question types, companies, answer categories — this feeds your preliminary paper</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <div class="step-title">Document preprocessing & chunking</div>
+        <ul class="step-actions">
+          <li>Extract text from each PDF using <code>PyMuPDF</code> or <code>pdfplumber</code></li>
+          <li>Implement two chunking strategies: fixed-size (512 tokens) and sentence-aware chunking</li>
+          <li>Store chunks with metadata: company name, doc type, page number, chunk ID</li>
+          <li>Save processed chunks to disk so you don't re-process every run</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 2 -->
+  <div class="phase p2">
+    <div class="phase-header" onclick="toggle('ph2')">
+      <div>
+        <div class="phase-title">Phase 2 — Build RAG pipelines</div>
+        <div class="phase-sub">Weeks 2–3 · Core engineering work</div>
+      </div>
+      <span class="chevron" id="ch2">▶</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+    <div class="phase-body" id="ph2">
+
+      <div class="step">
+        <div class="step-title">Pipeline 1 — Baseline RAG (BM25 sparse retrieval)</div>
+        <ul class="step-actions">
+          <li>Index all chunks using <code>rank_bm25</code> BM25 retriever</li>
+          <li>For each question: retrieve top-3 chunks, pass to GPT-3.5-turbo with a prompt template</li>
+          <li>Prompt template: "Answer the question using only the provided context. Context: {chunks}. Question: {question}"</li>
+          <li>Save all outputs: question, retrieved chunks, generated answer, gold answer</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <div class="step-title">Pipeline 2 — Dense RAG (semantic retrieval)</div>
+        <ul class="step-actions">
+          <li>Embed all chunks using <code>sentence-transformers/all-MiniLM-L6-v2</code></li>
+          <li>Index embeddings in a FAISS flat index (<code>faiss.IndexFlatL2</code>)</li>
+          <li>For each question: embed the query, retrieve top-3 nearest chunks by cosine similarity</li>
+          <li>Use the same prompt template and GPT-3.5-turbo generator as Pipeline 1</li>
+          <li>Compare which chunks are retrieved vs BM25 — are they different?</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <div class="step-title">Pipeline 3 — Enhanced RAG (query rewriting + dense retrieval)</div>
+        <ul class="step-actions">
+          <li>Add a query rewriting step: prompt GPT-3.5-turbo to expand/rephrase each question before retrieval</li>
+          <li>Example rewrite prompt: "Rewrite this financial question to improve document retrieval: {question}"</li>
+          <li>Use the rewritten query to retrieve from the same FAISS index as Pipeline 2</li>
+          <li>Compare retrieval quality: do rewritten queries fetch better evidence?</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <div class="step-title">Swap in Mistral-7B as alternative generator</div>
+        <ul class="step-actions">
+          <li>Load <code>mistralai/Mistral-7B-Instruct-v0.2</code> from HuggingFace with 4-bit quantization (<code>bitsandbytes</code>) on Colab GPU</li>
+          <li>Apply the best-performing retrieval config (from above) with Mistral as the generator</li>
+          <li>Use identical prompt template for fair comparison with GPT-3.5-turbo</li>
+          <li>Save all outputs in the same format for consistent evaluation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 3 -->
+  <div class="phase p3">
+    <div class="phase-header" onclick="toggle('ph3')">
+      <div>
+        <div class="phase-title">Phase 3 — Evaluation</div>
+        <div class="phase-sub">Week 4 · Measuring what matters</div>
+      </div>
+      <span class="chevron" id="ch3">▶</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+    <div class="phase-body" id="ph3">
+
+      <div class="step">
+        <div class="step-title">Automated metrics with RAGAS</div>
+        <ul class="step-actions">
+          <li>Install and configure RAGAS: <code>pip install ragas</code></li>
+          <li>Run three core metrics on each pipeline's outputs: faithfulness (is the answer grounded in retrieved context?), answer relevancy (does the answer address the question?), and context precision (are the retrieved chunks actually useful?)</li>
+          <li>RAGAS scores range 0–1; aim to report mean ± std across 150 examples per pipeline</li>
+          <li>Build a results DataFrame with columns: pipeline, model, faithfulness, answer_relevancy, context_precision</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <div class="step-title">Standard QA metrics (F1 + Exact Match)</div>
+        <ul class="step-actions">
+          <li>Implement token-level F1 and Exact Match (EM) against gold answers — standard SQuAD-style metrics</li>
+          <li>These complement RAGAS: F1/EM measure answer correctness, RAGAS measures groundedness</li>
+          <li>A high-faithfulness but low-F1 answer is grounded but wrong — interesting failure mode</li>
+          <li>Report both in your main results table for comparability with prior work</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <div class="step-title">Identify failure cases for error analysis</div>
+        <ul class="step-actions">
+          <li>Filter all outputs where faithfulness &lt; 0.5 OR F1 = 0 — these are your hallucination candidates</li>
+          <li>From the baseline pipeline (Pipeline 1), sample 50 failure cases for manual annotation</li>
+          <li>Ensure the 50 cases cover a mix of question types and companies (stratified sample)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 4 -->
+  <div class="phase p4">
+    <div class="phase-header" onclick="toggle('ph4')">
+      <div>
+        <div class="phase-title">Phase 4 — Error analysis & hallucination taxonomy</div>
+        <div class="phase-sub">Weeks 5–6 · The novel contribution</div>
+      </div>
+      <span class="chevron" id="ch4">▶</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+    <div class="phase-body" id="ph4">
+
+      <div class="step">
+        <div class="step-title">Manual annotation of 50 failure cases</div>
+        <ul class="step-actions">
+          <li>Each of the 4 group members annotates ~12–13 cases independently</li>
+          <li>For each failure: read the question, retrieved chunks, generated answer, and gold answer</li>
+          <li>Assign one hallucination type label (see taxonomy below)</li>
+          <li>Cross-check overlapping annotations on 10 shared cases to measure inter-annotator agreement (Cohen's kappa)</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <div class="step-title">Hallucination taxonomy (4 categories)</div>
+        <ul class="step-actions">
+          <li><strong>Numerical hallucination</strong> — wrong figure, wrong unit, wrong year (e.g. says "$2.1B revenue" when correct is "$2.4B")</li>
+          <li><strong>Entity hallucination</strong> — wrong company name, wrong executive, wrong product or subsidiary</li>
+          <li><strong>Reasoning hallucination</strong> — logically flawed conclusion drawn from correct retrieved facts</li>
+          <li><strong>Unsupported extrapolation</strong> — makes a claim not traceable to any retrieved chunk (pure fabrication)</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <div class="step-title">Train RoBERTa hallucination classifier (optional but strong)</div>
+        <ul class="step-actions">
+          <li>Use RAGTruth dataset as training supervision (available on HuggingFace: <code>wandb/RAGTruth</code>)</li>
+          <li>Fine-tune <code>roberta-base</code> as a binary classifier: hallucinated vs grounded</li>
+          <li>Input: concatenation of retrieved context + generated answer</li>
+          <li>Evaluate on your 50 manually annotated FinanceBench cases</li>
+          <li>Report precision, recall, F1 — how well does auto-detection match human judgment?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 5 -->
+  <div class="phase p5">
+    <div class="phase-header" onclick="toggle('ph5')">
+      <div>
+        <div class="phase-title">Phase 5 — Paper writing</div>
+        <div class="phase-sub">Weeks 4–8 · Start early, revise often</div>
+      </div>
+      <span class="chevron" id="ch5">▶</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+    <div class="phase-body" id="ph5">
+
+      <div class="step">
+        <div class="step-title">Preliminary paper (due 7/3) — 4 pages</div>
+        <ul class="step-actions">
+          <li>Sections: introduction, related work (20–24 papers), data description + EDA, preliminary results with baseline pipeline only</li>
+          <li>Produce at least one results table and one figure (e.g. distribution of question types in FinanceBench)</li>
+          <li>Use the instructor-provided LaTeX or Word template — wrong template = zero</li>
+          <li>Divide writing: Person 1 owns intro + related work, others own methodology + results</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <div class="step-title">Final paper (due 7/31) — 8 pages</div>
+        <ul class="step-actions">
+          <li>Abstract (3–4 sentences: problem, approach, key findings)</li>
+          <li>Introduction: motivate RAG hallucination in finance, state research questions, summarize contributions</li>
+          <li>Related work: summarize 20–24 papers, grouped by theme (RAG methods, hallucination detection, financial NLP)</li>
+          <li>Methodology: describe all 3 pipelines, evaluation setup, annotation process</li>
+          <li>Results: main comparison table + hallucination type breakdown chart</li>
+          <li>Analysis: qualitative examples of each hallucination type, discussion of failure patterns</li>
+          <li>Conclusions + future work: what would the full 10K-example dataset reveal?</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <div class="step-title">Figures and tables to produce</div>
+        <ul class="step-actions">
+          <li>Table 1: main results — all pipeline × model combinations, RAGAS + F1 scores</li>
+          <li>Figure 1: bar chart of hallucination type frequencies (numerical vs entity vs reasoning vs unsupported)</li>
+          <li>Table 2: 2–3 qualitative examples per hallucination type (question, answer, gold, label)</li>
+          <li>Figure 2 (optional): RoBERTa classifier confusion matrix or precision/recall curve</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 6 -->
+  <div class="phase p6">
+    <div class="phase-header" onclick="toggle('ph6')">
+      <div>
+        <div class="phase-title">Phase 6 — Presentation & poster</div>
+        <div class="phase-sub">Week 9 · Due 8/4</div>
+      </div>
+      <span class="chevron" id="ch6">▶</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+    <div class="phase-body" id="ph6">
+
+      <div class="step">
+        <div class="step-title">Poster design</div>
+        <ul class="step-actions">
+          <li>Structure: motivation → research questions → pipeline diagram → results table → hallucination taxonomy → conclusions</li>
+          <li>Each group member owns one poster section matching their project role</li>
+          <li>Include a QR code linking to your video recording and GitHub repo</li>
+          <li>Keep text minimal — posters are visual; bullets over paragraphs</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <div class="step-title">Video recording (max 8 minutes)</div>
+        <ul class="step-actions">
+          <li>Each person presents ~2 minutes covering the part they owned</li>
+          <li>Suggested split: Person 1 = intro + motivation (2 min), Person 2 = pipeline design (2 min), Person 3 = results (2 min), Person 4 = error analysis + conclusions (2 min)</li>
+          <li>Record with slides (use poster sections as slides) and talking head</li>
+          <li>Hard cutoff at 8 minutes — practice beforehand, points deducted for going over</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <div class="step-title">Workshop submission (bonus — resume value)</div>
+        <ul class="step-actions">
+          <li>Check submission deadline for "Towards Knowledgeable Foundation Models" at ACL 2026</li>
+          <li>Format paper to ACL anthology style using the official ACL LaTeX template</li>
+          <li>Submit via OpenReview — submitting is free, presenting if accepted requires registration</li>
+          <li>Even a rejection gives you reviewer feedback and the line "submitted to ACL 2026 workshop" on your resume</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function toggle(id) {
+  const body = document.getElementById(id);
+  const num = id.replace('ph','');
+  const chev = document.getElementById('ch'+num);
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  chev.classList.toggle('open', !isOpen);
+}
+toggle('ph1');
+</script>

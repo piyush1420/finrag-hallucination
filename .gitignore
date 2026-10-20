@@ -1,0 +1,50 @@
+# --- Secrets ---
+.env
+*.key
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.python-version
+
+# --- Virtual environments ---
+.venv/
+venv/
+env/
+.conda/
+
+# --- Large / generated data (do NOT commit raw PDFs, indices, model checkpoints) ---
+data/raw/
+data/pdfs/
+data/processed/
+*.faiss
+*.index
+*.bin
+*.pt
+*.safetensors
+checkpoints/
+
+# --- OS / editor ---
+.DS_Store
+.vscode/
+.idea/
+
+# --- Results scratch (keep curated tables/figures, ignore bulky raw dumps) ---
+results/raw_outputs/
+
+# --- LaTeX build artifacts ---
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.bbl
+paper/*.blg
+paper/*.synctex.gz
+paper/main.pdf
+paper/main_test.*
+paper/.DS_Store
+paper/templates/.DS_Store
+
+# --- Local-only docs, never pushed (architecture, flow notes, slides, infographic) ---
+local_docs/
