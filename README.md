@@ -18,7 +18,7 @@ answers are, and hand-classify the mistakes.
 
 📄 **[Read the final paper (PDF)](paper/CS6120NLP_Group7_RAG_Hallucination_final_paper.pdf)** ·
 🖼️ **[Poster](paper/CS6120NLP_Group7_FinRAG_poster.jpeg)** ·
-📊 **[Slides](paper/CS6120NLP_Group7_FinRAG_presentation.pdf)**
+
 
 ---
 
