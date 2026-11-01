@@ -633,22 +633,6 @@ raw model outputs, and model checkpoints.
 - A *precise*, calibrated, multi-class detector for the four hallucination types
 - Scaling to the full FinanceBench benchmark
 
----
-
-## Team
-
-Course project for **CS6120 Natural Language Processing**, Northeastern University (Group 7).
-
-| Member | Contributions |
-|---|---|
-| **Bhalchandra Shinde** | Repository and infrastructure, environment, data pipeline, EDA, dense and query-rewriting pipelines, Mistral-7B generator comparison, error-analysis taxonomy, annotation and figures, literature notes |
-| **Anish Kelkar** | Document chunking, baseline BM25 pipeline, evaluation harness (RAGAS + F1/EM), results tabulation |
-| **Piyush Daga** | Retrieval-depth (top-k) ablation |
-| **Rituraj Singh** | Related-work contributions |
-
-All members contributed to the final paper.
-
----
 
 ## Acknowledgements and references
 
