@@ -16,9 +16,6 @@ earnings reports), ask them **150 expert-written financial questions** from the
 [FinanceBench](https://github.com/patronus-ai/financebench) benchmark, measure how grounded their
 answers are, and hand-classify the mistakes.
 
-📄 **[Read the final paper (PDF)](paper/CS6120NLP_Group7_RAG_Hallucination_final_paper.pdf)** ·
-🖼️ **[Poster](paper/CS6120NLP_Group7_FinRAG_poster.jpeg)** ·
-
 
 ---
 
@@ -95,10 +92,7 @@ We ask three research questions:
 > flagged as wrong were actually **correct**. The metric missed a formatting variant such as
 > "$1,577 million" vs. "1.577 billion". Human review is still necessary.
 
-<p align="center">
-  <img src="paper/CS6120NLP_Group7_FinRAG_poster.jpeg" alt="Project poster summarizing dataset, pipeline, RQ1-RQ3 results and the RoBERTa detector" width="100%">
-  <br><em>Project poster: a one-page visual summary. The tables below are the authoritative numbers.</em>
-</p>
+
 
 ---
 
